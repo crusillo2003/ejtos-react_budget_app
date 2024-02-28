@@ -14,12 +14,14 @@ const CurrencyList = () => {
     }
 
     return (
-        <select className="custom-select" id="inputGroupSelect01" onChange={(event) => currencyChangeHandler(event.target.value)}>
+<div className='alert alert-warning'>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="inputGroupSelect01" onChange={(event) => currencyChangeHandler(event.target.value)}>
 
-        {currencies.map((currency) => (
-                        <option value={currency.symbol} name={currency.name} key={currency.id}> {currency.name} </option>
-                    ))}
-        </select>
+            {currencies.map((currency) => (
+                            <option value={currency.symbol} name={currency.name} key={currency.id}> {currency.symbol} {currency.name} </option>
+                        ))}
+            </select>
+            </div>
 
     );
 };
