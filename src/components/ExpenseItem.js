@@ -4,7 +4,7 @@ import { FcPlus,FcMinus } from "react-icons/fc";
 import { AppContext } from '../context/AppContext';
 
 const ExpenseItem = (props) => {
-    const { dispatch } = useContext(AppContext);
+    const { dispatch, currency } = useContext(AppContext);
 
     const handleDeleteExpense = () => {
         dispatch({
@@ -42,7 +42,7 @@ const ExpenseItem = (props) => {
     return (
         <tr>
             <td>{props.name}</td>
-            <td>£{props.cost}</td>
+            <td>{currency}{props.cost}</td>
             <td><FcPlus size='1.5em' onClick={event=> increaseAllocation(props.name)}></FcPlus></td>
             <td><FcMinus size='1.5em' onClick={event=> decreaseAllocation(props.name)}></FcMinus></td>
             <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
